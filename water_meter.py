@@ -5,7 +5,11 @@ import os
 from datetime import datetime
 
 # Directory and file configuration
+<<<<<<< HEAD:hospital_data/water_meter.py
 LOG_DIR = "active_logs"
+=======
+LOG_DIR = "hospital_data/active_logs"
+>>>>>>> mtndlovu81-analyze-logs:water_meter.py
 LOG_FILE = os.path.join(LOG_DIR,"water_usage.log")
 PID_FILE = "/tmp/water_consumption.pid"
 DEVICE = "Water_Consumption_Meter"

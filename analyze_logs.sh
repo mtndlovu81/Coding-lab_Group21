@@ -1,6 +1,9 @@
 #!/bin/bash
 
+mkdir -p hospital_data/{active_logs,reports}
+
 log_dir="hospital_data/active_logs"
+report="hospital_data/reports/analysis_report.txt"
 
 # --- Input loop with case ---
 while true; do
@@ -46,9 +49,7 @@ for device in $devices; do
     first_ts=$(grep "$device" "$logfile" | awk 'NR==1{print $1, $2}')
     last_ts=$(grep "$device" "$logfile" | awk 'END{print $1, $2}')
 
-    echo "Device: $device"
-    echo "  Total entries: $count"
-    echo "  First entry: $first_ts"
-    echo "  Last entry: $last_ts"
+    echo -e "Device: $device\n\tTotal entries: $count\n\tFirst entry: $first_ts\n\tLast entry:  $last_ts" >> "$report"
+    echo "Analysis completed."
 done
 

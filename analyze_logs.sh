@@ -6,12 +6,12 @@ echo "2) Temperature (temperature.log)"
 echo "3) Water Usage (water_usage.log)"
 read -p "Enter choice (1-3): " choice
 
- case "$choice" in 
-	 1|2|3)
-		 echo "You selected option $choice"
-		 ;;
-	*)
-		echo "Invalid choice, Please enter 1, 2, or 3."
-		exit 1
-esac
+if [ "$choice" = "1" ] || [ "$choice" = "2" ] || [ "$choice" = "3" ]; then
+    echo "You selected option $choice"
+
+  else
+
+    echo "Invalid choice, please enter 1, 2, or 3."
+    exit 1
+fi
 

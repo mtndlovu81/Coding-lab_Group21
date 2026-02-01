@@ -39,12 +39,12 @@ echo "Analyzing $logfile ..."
 
 # --- Analysis ---
 # Assuming log format: "timestamp device_name value"
-devices=$(awk '{print $2}' "$logfile" | sort | uniq)
+devices=$(awk '{print $3}' "$logfile" | sort | uniq)
 
 for device in $devices; do
     count=$(grep -c "$device" "$logfile")
-    first_ts=$(grep "$device" "$logfile" | awk 'NR==1{print $1}')
-    last_ts=$(grep "$device" "$logfile" | awk 'END{print $1}')
+    first_ts=$(grep "$device" "$logfile" | awk 'NR==1{print $1, $2}')
+    last_ts=$(grep "$device" "$logfile" | awk 'END{print $1, $2}')
 
     echo "Device: $device"
     echo "  Total entries: $count"

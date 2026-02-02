@@ -50,6 +50,7 @@ for device in $devices; do
     last_ts=$(grep "$device" "$logfile" | awk 'END{print $1, $2}')
 
     echo -e "Device: $device\n\tTotal entries: $count\n\tFirst entry: $first_ts\n\tLast entry:  $last_ts" >> "$report"
-    echo "Analysis completed."
 done
+
+echo "Analysis completed."
 
